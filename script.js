@@ -52,7 +52,15 @@ function createCard(r){
         <h3>${r.name}</h3>
         <p>⏱ ${r.time}</p>
         <p>📊 ${r.diff}</p>
-        <button class="view">View</button>
+// When clicking "View" button, redirect to recipe page
+document.addEventListener("click", function(e){
+  if(e.target.classList.contains("view")){
+    const recipeName = e.target.parentElement.querySelector("h3").textContent;
+    // Replace spaces with underscores for URL
+    const urlName = recipeName.toLowerCase().replace(/ /g,"_");
+    window.location.href = `recipe.html?name=${urlName}`;
+  }
+});
         <button class="fav">❤️</button>
         <div class="rating">
           <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
@@ -149,3 +157,4 @@ function toggleDark(){
   document.body.classList.toggle("dark");
 
 }
+
