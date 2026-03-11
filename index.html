@@ -1,194 +1,346 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>World Recipes</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🍴 Recipe Hub</title>
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
 <header>
-
-<h1>🌍 World Recipes</h1>
-
-<div class="topButtons">
-<button onclick="toggleDark()">🌙</button>
-<button onclick="location.href='admin.html'">Admin</button>
-<button class="addBtn" onclick="location.href='add.html'">+</button>
-</div>
-
-<div class="controls">
-
-<input id="search" placeholder="Search recipes">
-
-<select id="filter">
-<option value="all">All cuisines</option>
-<option value="italian">Italian</option>
-<option value="japanese">Japanese</option>
-<option value="mexican">Mexican</option>
-<option value="american">American</option>
-<option value="chinese">Chinese</option>
-<option value="indian">Indian</option>
-</select>
-
-</div>
-
+  <h1>🍽 Recipe Hub</h1>
+  <div class="top-controls">
+    <input type="text" id="search" placeholder="Search recipes...">
+    <select id="filter">
+      <option value="all">All Types</option>
+      <option value="italian">Italian</option>
+      <option value="japanese">Japanese</option>
+      <option value="mexican">Mexican</option>
+      <option value="american">American</option>
+      <option value="indian">Indian</option>
+      <option value="thai">Thai</option>
+      <option value="breakfast">Breakfast</option>
+      <option value="lunch">Lunch</option>
+      <option value="dinner">Dinner</option>
+      <option value="dessert">Dessert</option>
+    </select>
+    <button id="dark-toggle">🌙</button>
+  </div>
 </header>
-<h2 class="sectionTitle">🔥 Trending Recipes</h2>
 
-<div class="trending" id="trending"></div>
+<main class="recipes-container" id="recipes">
 
-<h2 class="sectionTitle">🍳 All Recipes</h2>
-
-<div class="container" id="recipes"></div>
-
+<!-- ===== Recipe Cards (30+) ===== -->
+<!-- Italian -->
 <div class="recipe" data-type="italian">
-<img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b">
-<div class="content">
-<h3>Spaghetti Carbonara</h3>
-<button class="view">View</button>
-<button class="fav">⭐</button>
-<div class="details">
-<p>Spaghetti, eggs, pancetta, pecorino cheese.</p>
-</div>
-</div>
+  <img src="spaghetti_carbonara.jpg" alt="Spaghetti Carbonara">
+  <div class="recipe-content">
+    <h3>Spaghetti Carbonara</h3>
+    <p>⏱ 25 min • 📊 Medium</p>
+    <button class="view" data-url="spaghetti_carbonara">View Recipe</button>
+    <span class="favorite">☆</span>
+  </div>
 </div>
 
 <div class="recipe" data-type="italian">
-<img src="https://images.unsplash.com/photo-1600891964092-4316c288032e">
-<div class="content">
-<h3>Lasagna</h3>
-<button class="view">View</button>
-<button class="fav">⭐</button>
-<div class="details">
-<p>Pasta sheets, beef, tomato sauce, mozzarella.</p>
+  <img src="lasagna.jpg" alt="Lasagna">
+  <div class="recipe-content">
+    <h3>Lasagna</h3>
+    <p>⏱ 60 min • 📊 Hard</p>
+    <button class="view" data-url="lasagna">View Recipe</button>
+    <span class="favorite">☆</span>
+  </div>
 </div>
+
+<div class="recipe" data-type="italian">
+  <img src="margherita_pizza.jpg" alt="Margherita Pizza">
+  <div class="recipe-content">
+    <h3>Margherita Pizza</h3>
+    <p>⏱ 30 min • 📊 Medium</p>
+    <button class="view" data-url="margherita_pizza">View Recipe</button>
+    <span class="favorite">☆</span>
+  </div>
 </div>
+
+<div class="recipe" data-type="italian">
+  <img src="tiramisu.jpg" alt="Tiramisu">
+  <div class="recipe-content">
+    <h3>Tiramisu</h3>
+    <p>⏱ 40 min • 📊 Medium</p>
+    <button class="view" data-url="tiramisu">View Recipe</button>
+    <span class="favorite">☆</span>
+  </div>
+</div>
+
+<!-- Japanese -->
+<div class="recipe" data-type="japanese">
+  <img src="sushi_rolls.jpg" alt="Sushi Rolls">
+  <div class="recipe-content">
+    <h3>Sushi Rolls</h3>
+    <p>⏱ 50 min • 📊 Medium</p>
+    <button class="view" data-url="sushi_rolls">View Recipe</button>
+    <span class="favorite">☆</span>
+  </div>
 </div>
 
 <div class="recipe" data-type="japanese">
-<img src="https://images.unsplash.com/photo-1553621042-f6e147245754">
-<div class="content">
-<h3>Sushi Rolls</h3>
-<button class="view">View</button>
-<button class="fav">⭐</button>
-<div class="details">
-<p>Sushi rice, nori, fish, cucumber.</p>
-</div>
-</div>
+  <img src="ramen.jpg" alt="Ramen">
+  <div class="recipe-content">
+    <h3>Ramen</h3>
+    <p>⏱ 45 min • 📊 Medium</p>
+    <button class="view" data-url="ramen">View Recipe</button>
+    <span class="favorite">☆</span>
+  </div>
 </div>
 
 <div class="recipe" data-type="japanese">
-<img src="https://images.unsplash.com/photo-1604908176997-4312c5a2b7a2">
-<div class="content">
-<h3>Ramen</h3>
-<button class="view">View</button>
-<button class="fav">⭐</button>
-<div class="details">
-<p>Noodles, broth, egg, pork slices.</p>
+  <img src="tempura.jpg" alt="Tempura">
+  <div class="recipe-content">
+    <h3>Tempura</h3>
+    <p>⏱ 35 min • 📊 Medium</p>
+    <button class="view" data-url="tempura">View Recipe</button>
+    <span class="favorite">☆</span>
+  </div>
 </div>
-</div>
+
+<!-- Mexican -->
+<div class="recipe" data-type="mexican">
+  <img src="tacos_al_pastor.jpg" alt="Tacos al Pastor">
+  <div class="recipe-content">
+    <h3>Tacos al Pastor</h3>
+    <p>⏱ 40 min • 📊 Medium</p>
+    <button class="view" data-url="tacos_al_pastor">View Recipe</button>
+    <span class="favorite">☆</span>
+  </div>
 </div>
 
 <div class="recipe" data-type="mexican">
-<img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092">
-<div class="content">
-<h3>Tacos</h3>
-<button class="view">View</button>
-<button class="fav">⭐</button>
-<div class="details">
-<p>Tortillas, beef, lettuce, tomatoes.</p>
-</div>
-</div>
+  <img src="quesadilla.jpg" alt="Quesadilla">
+  <div class="recipe-content">
+    <h3>Quesadilla</h3>
+    <p>⏱ 25 min • 📊 Easy</p>
+    <button class="view" data-url="quesadilla">View Recipe</button>
+    <span class="favorite">☆</span>
+  </div>
 </div>
 
 <div class="recipe" data-type="mexican">
-<img src="https://images.unsplash.com/photo-1601924638867-3ec2f2f2b9a9">
-<div class="content">
-<h3>Quesadilla</h3>
-<button class="view">View</button>
-<button class="fav">⭐</button>
-<div class="details">
-<p>Tortilla, cheese, chicken.</p>
+  <img src="burrito.jpg" alt="Burrito">
+  <div class="recipe-content">
+    <h3>Burrito</h3>
+    <p>⏱ 30 min • 📊 Medium</p>
+    <button class="view" data-url="burrito">View Recipe</button>
+    <span class="favorite">☆</span>
+  </div>
 </div>
+
+<div class="recipe" data-type="mexican">
+  <img src="churros.jpg" alt="Churros">
+  <div class="recipe-content">
+    <h3>Churros</h3>
+    <p>⏱ 35 min • 📊 Medium</p>
+    <button class="view" data-url="churros">View Recipe</button>
+    <span class="favorite">☆</span>
+  </div>
 </div>
+
+<!-- American -->
+<div class="recipe" data-type="american">
+  <img src="cheeseburger.jpg" alt="Cheeseburger">
+  <div class="recipe-content">
+    <h3>Cheeseburger</h3>
+    <p>⏱ 30 min • 📊 Easy</p>
+    <button class="view" data-url="cheeseburger">View Recipe</button>
+    <span class="favorite">☆</span>
+  </div>
 </div>
 
 <div class="recipe" data-type="american">
-<img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
-<div class="content">
-<h3>Cheeseburger</h3>
-<button class="view">View</button>
-<button class="fav">⭐</button>
-<div class="details">
-<p>Beef patty, bun, cheese, lettuce.</p>
-</div>
-</div>
+  <img src="fried_chicken.jpg" alt="Fried Chicken">
+  <div class="recipe-content">
+    <h3>Fried Chicken</h3>
+    <p>⏱ 50 min • 📊 Medium</p>
+    <button class="view" data-url="fried_chicken">View Recipe</button>
+    <span class="favorite">☆</span>
+  </div>
 </div>
 
 <div class="recipe" data-type="american">
-<img src="https://images.unsplash.com/photo-1562967916-eb82221dfb36">
-<div class="content">
-<h3>Fried Chicken</h3>
-<button class="view">View</button>
-<button class="fav">⭐</button>
-<div class="details">
-<p>Chicken, flour batter, spices.</p>
-</div>
-</div>
+  <img src="mac_and_cheese.jpg" alt="Mac and Cheese">
+  <div class="recipe-content">
+    <h3>Mac and Cheese</h3>
+    <p>⏱ 35 min • 📊 Easy</p>
+    <button class="view" data-url="mac_and_cheese">View Recipe</button>
+    <span class="favorite">☆</span>
+  </div>
 </div>
 
-<div class="recipe" data-type="chinese">
-<img src="https://images.unsplash.com/photo-1585032226651-759b368d7246">
-<div class="content">
-<h3>Fried Rice</h3>
-<button class="view">View</button>
-<button class="fav">⭐</button>
-<div class="details">
-<p>Rice, egg, soy sauce, vegetables.</p>
-</div>
-</div>
+<div class="recipe" data-type="american">
+  <img src="caesar_salad.jpg" alt="Caesar Salad">
+  <div class="recipe-content">
+    <h3>Caesar Salad</h3>
+    <p>⏱ 20 min • 📊 Easy</p>
+    <button class="view" data-url="caesar_salad">View Recipe</button>
+    <span class="favorite">☆</span>
+  </div>
 </div>
 
-<div class="recipe" data-type="chinese">
-<img src="https://images.unsplash.com/photo-1544025162-d76694265947">
-<div class="content">
-<h3>Dumplings</h3>
-<button class="view">View</button>
-<button class="fav">⭐</button>
-<div class="details">
-<p>Dough wrappers, pork filling.</p>
+<!-- Breakfast -->
+<div class="recipe" data-type="breakfast">
+  <img src="pancakes.jpg" alt="Pancakes">
+  <div class="recipe-content">
+    <h3>Pancakes</h3>
+    <p>⏱ 20 min • 📊 Easy</p>
+    <button class="view" data-url="pancakes">View Recipe</button>
+    <span class="favorite">☆</span>
+  </div>
 </div>
+
+<div class="recipe" data-type="breakfast">
+  <img src="omelette.jpg" alt="Omelette">
+  <div class="recipe-content">
+    <h3>Omelette</h3>
+    <p>⏱ 15 min • 📊 Easy</p>
+    <button class="view" data-url="omelette">View Recipe</button>
+    <span class="favorite">☆</span>
+  </div>
 </div>
+
+<div class="recipe" data-type="breakfast">
+  <img src="french_toast.jpg" alt="French Toast">
+  <div class="recipe-content">
+    <h3>French Toast</h3>
+    <p>⏱ 20 min • 📊 Easy</p>
+    <button class="view" data-url="french_toast">View Recipe</button>
+    <span class="favorite">☆</span>
+  </div>
+</div>
+
+<div class="recipe" data-type="breakfast">
+  <img src="smoothie_bowl.jpg" alt="Smoothie Bowl">
+  <div class="recipe-content">
+    <h3>Smoothie Bowl</h3>
+    <p>⏱ 10 min • 📊 Easy</p>
+    <button class="view" data-url="smoothie_bowl">View Recipe</button>
+    <span class="favorite">☆</span>
+  </div>
+</div>
+
+<!-- Seafood / Dinner -->
+<div class="recipe" data-type="american">
+  <img src="grilled_salmon.jpg" alt="Grilled Salmon">
+  <div class="recipe-content">
+    <h3>Grilled Salmon</h3>
+    <p>⏱ 35 min • 📊 Medium</p>
+    <button class="view" data-url="grilled_salmon">View Recipe</button>
+    <span class="favorite">☆</span>
+  </div>
+</div>
+
+<!-- Desserts -->
+<div class="recipe" data-type="dessert">
+  <img src="chocolate_cake.jpg" alt="Chocolate Cake">
+  <div class="recipe-content">
+    <h3>Chocolate Cake</h3>
+    <p>⏱ 45 min • 📊 Medium</p>
+    <button class="view" data-url="chocolate_cake">View Recipe</button>
+    <span class="favorite">☆</span>
+  </div>
+</div>
+
+<div class="recipe" data-type="dessert">
+  <img src="ice_cream_sundae.jpg" alt="Ice Cream Sundae">
+  <div class="recipe-content">
+    <h3>Ice Cream Sundae</h3>
+    <p>⏱ 15 min • 📊 Easy</p>
+    <button class="view" data-url="ice_cream_sundae">View Recipe</button>
+    <span class="favorite">☆</span>
+  </div>
+</div>
+
+<div class="recipe" data-type="dessert">
+  <img src="brownies.jpg" alt="Brownies">
+  <div class="recipe-content">
+    <h3>Brownies</h3>
+    <p>⏱ 40 min • 📊 Medium</p>
+    <button class="view" data-url="brownies">View Recipe</button>
+    <span class="favorite">☆</span>
+  </div>
+</div>
+
+<!-- Indian -->
+<div class="recipe" data-type="indian">
+  <img src="butter_chicken.jpg" alt="Butter Chicken">
+  <div class="recipe-content">
+    <h3>Butter Chicken</h3>
+    <p>⏱ 50 min • 📊 Medium</p>
+    <button class="view" data-url="butter_chicken">View Recipe</button>
+    <span class="favorite">☆</span>
+  </div>
 </div>
 
 <div class="recipe" data-type="indian">
-<img src="https://images.unsplash.com/photo-1605475128023-54c95c6f9c9f">
-<div class="content">
-<h3>Butter Chicken</h3>
-<button class="view">View</button>
-<button class="fav">⭐</button>
-<div class="details">
-<p>Chicken, butter sauce, spices.</p>
-</div>
-</div>
+  <img src="chicken_biryani.jpg" alt="Chicken Biryani">
+  <div class="recipe-content">
+    <h3>Chicken Biryani</h3>
+    <p>⏱ 60 min • 📊 Hard</p>
+    <button class="view" data-url="chicken_biryani">View Recipe</button>
+    <span class="favorite">☆</span>
+  </div>
 </div>
 
 <div class="recipe" data-type="indian">
-<img src="https://images.unsplash.com/photo-1596797038530-2c107aa2c4c0">
-<div class="content">
-<h3>Biryani</h3>
-<button class="view">View</button>
-<button class="fav">⭐</button>
-<div class="details">
-<p>Rice, chicken, spices.</p>
-</div>
-</div>
+  <img src="paneer_tikka.jpg" alt="Paneer Tikka">
+  <div class="recipe-content">
+    <h3>Paneer Tikka</h3>
+    <p>⏱ 40 min • 📊 Medium</p>
+    <button class="view" data-url="paneer_tikka">View Recipe</button>
+    <span class="favorite">☆</span>
+  </div>
 </div>
 
+<div class="recipe" data-type="indian">
+  <img src="masala_dosa.jpg" alt="Masala Dosa">
+  <div class="recipe-content">
+    <h3>Masala Dosa</h3>
+    <p>⏱ 45 min • 📊 Medium</p>
+    <button class="view" data-url="masala_dosa">View Recipe</button>
+    <span class="favorite">☆</span>
+  </div>
 </div>
+
+<!-- Thai -->
+<div class="recipe" data-type="thai">
+  <img src="pad_thai.jpg" alt="Pad Thai">
+  <div class="recipe-content">
+    <h3>Pad Thai</h3>
+    <p>⏱ 30 min • 📊 Medium</p>
+    <button class="view" data-url="pad_thai">View Recipe</button>
+    <span class="favorite">☆</span>
+  </div>
+</div>
+
+<div class="recipe" data-type="thai">
+  <img src="tom_yum_soup.jpg" alt="Tom Yum Soup">
+  <div class="recipe-content">
+    <h3>Tom Yum Soup</h3>
+    <p>⏱ 35 min • 📊 Medium</p>
+    <button class="view" data-url="tom_yum_soup">View Recipe</button>
+    <span class="favorite">☆</span>
+  </div>
+</div>
+
+<div class="recipe" data-type="thai">
+  <img src="green_curry.jpg" alt="Green Curry">
+  <div class="recipe-content">
+    <h3>Green Curry</h3>
+    <p>⏱ 40 min • 📊 Medium</p>
+    <button class="view" data-url="green_curry">View Recipe</button>
+    <span class="favorite">☆</span>
+  </div>
+</div>
+</main>
 
 <script src="script.js"></script>
-
 </body>
 </html>
