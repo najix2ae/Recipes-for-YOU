@@ -1,10 +1,17 @@
-<!DOCTYPE html><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe</title>
 <link rel="stylesheet" href="style.css">
+<style>
+  body { font-family: Arial, sans-serif; padding: 20px; max-width: 800px; margin: auto; }
+  header { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; }
+  header a { text-decoration:none; font-size:18px; }
+  #recipe-img { width:100%; max-height:400px; object-fit:cover; margin-bottom:20px; }
+  h3 { margin-top:15px; }
+</style>
 </head>
 <body>
 <header>
@@ -21,71 +28,282 @@
 </div>
 
 <script>
-// Define recipes (same as script.js)
-const recipes = {
-  spaghetti_carbonara: {
-    title: "Spaghetti Carbonara",
-    img: "spaghetti_carbonara.jpg",
-    ingredients:["200g spaghetti","100g pancetta","2 eggs","50g parmesan","Salt & pepper"],
-    instructions:[
-      "Cook spaghetti in salted water.",
-      "Fry pancetta until crispy.",
-      "Beat eggs and mix with parmesan.",
-      "Drain pasta and mix with pancetta.",
-      "Remove from heat and add egg-cheese mixture.",
-      "Serve immediately."
-    ]
-  },
-  lasagna: {
-    title: "Lasagna",
-    img: "lasagna.jpg",
-    ingredients:["Lasagna sheets","500g minced beef","2 cups tomato sauce","200g mozzarella","Bechamel sauce"],
-    instructions:[
-      "Preheat oven to 180°C.",
-      "Cook minced beef with tomato sauce.",
-      "Layer lasagna sheets, meat, and bechamel in a dish.",
-      "Top with mozzarella.",
-      "Bake for 40 minutes.",
-      "Let cool slightly and serve."
-    ]
-  },
-  margherita_pizza: {
-    title: "Margherita Pizza",
-    img: "margherita_pizza.jpg",
-    ingredients:["Pizza dough","Tomato sauce","Mozzarella","Basil leaves"],
-    instructions:[
-      "Preheat oven to 220°C.",
-      "Roll out dough and add tomato sauce.",
-      "Top with mozzarella and basil.",
-      "Bake for 10–12 minutes.",
-      "Serve hot."
-    ]
-  },
-  tiramisu: {
-    title: "Tiramisu",
-    img: "tiramisu.jpg",
-    ingredients:["Ladyfingers","Mascarpone","Coffee","Cocoa powder","Sugar","Eggs"],
-    instructions:[
-      "Mix mascarpone, eggs, and sugar.",
-      "Dip ladyfingers in coffee and layer.",
-      "Add mascarpone mixture on top.",
-      "Repeat layers.",
-      "Chill for 4 hours.",
-      "Sprinkle cocoa powder before serving."
-    ]
-  }
-  // Add all other recipes here
-};
 
-// Get recipe from URL
+const recipesArray = [
+  {
+    name:"Spaghetti Carbonara",
+    img:"spaghetti_carbonara.jpg",
+    ingredients:["200g spaghetti","100g pancetta","2 eggs","50g parmesan","Salt & pepper"],
+    instructions:["Cook spaghetti in salted water.","Fry pancetta until crispy.","Beat eggs and mix with parmesan.","Drain pasta and mix with pancetta.","Remove from heat and add egg-cheese mixture.","Serve immediately."]
+  },
+  {
+    name:"Lasagna",
+    img:"lasagna.jpg",
+    ingredients:["Lasagna sheets","500g minced beef","2 cups tomato sauce","200g mozzarella","Bechamel sauce"],
+    instructions:["Preheat oven to 180°C.","Cook minced beef with tomato sauce.","Layer lasagna sheets, meat, and bechamel in a dish.","Top with mozzarella.","Bake for 40 minutes.","Let cool slightly and serve."]
+  },
+  {
+    name:"Margherita Pizza",
+    img:"margherita_pizza.jpg",
+    ingredients:["Pizza dough","Tomato sauce","Mozzarella","Basil leaves"],
+    instructions:["Preheat oven to 220°C.","Roll out dough and add tomato sauce.","Top with mozzarella and basil.","Bake for 10–12 minutes.","Serve hot."]
+  },
+   {
+    name:"Tiramisu",
+    img:"tiramisu.jpg",
+    type:"italian",
+    time:"45 min",
+    diff:"Medium",
+    ingredients:["Ladyfingers","Mascarpone","Coffee","Cocoa powder","Sugar","Eggs"],
+    instructions:["Mix mascarpone, eggs, and sugar.","Dip ladyfingers in coffee and layer.","Add mascarpone mixture on top.","Repeat layers.","Chill for 4 hours.","Sprinkle cocoa powder before serving."]
+  },
+  {
+    name:"Sushi Rolls",
+    img:"sushi_rolls.jpg",
+    type:"japanese",
+    time:"50 min",
+    diff:"Hard",
+    ingredients:["Sushi rice","Nori sheets","Raw fish or veggies","Soy sauce","Wasabi"],
+    instructions:["Cook sushi rice and let it cool.","Place nori on bamboo mat.","Spread rice evenly on nori.","Add filling.","Roll tightly and slice.","Serve with soy sauce and wasabi."]
+  },
+  {
+    name:"Ramen",
+    img:"ramen.jpg",
+    type:"japanese",
+    time:"40 min",
+    diff:"Medium",
+    ingredients:["Ramen noodles","Chicken broth","Soy sauce","Eggs","Green onions","Pork slices"],
+    instructions:["Boil noodles according to package.","Heat broth and season with soy sauce.","Pour broth over noodles.","Top with egg, pork, and green onions.","Serve hot."]
+  },
+  {
+    name:"Tempura",
+    img:"tempura.jpg",
+    type:"japanese",
+    time:"20 min",
+    diff:"Easy",
+    ingredients:["Shrimp or veggies","Tempura batter mix","Oil for frying","Soy sauce"],
+    instructions:["Heat oil in a pan.","Dip ingredients in batter.","Fry until golden.","Drain on paper towel.","Serve with soy sauce."]
+  },
+  {
+    name:"Tacos al Pastor",
+    img:"tacos_al_pastor.jpg",
+    type:"mexican",
+    time:"20 min",
+    diff:"Medium",
+    ingredients:["Tortillas","Pork","Pineapple","Onion","Cilantro","Salsa"],
+    instructions:["Cook pork with spices.","Warm tortillas.","Place pork, pineapple, onion, cilantro on tortilla.","Top with salsa.","Serve immediately."]
+  },
+  {
+    name:"Quesadilla",
+    img:"quesadilla.jpg",
+    type:"mexican",
+    time:"10 min",
+    diff:"Easy",
+    ingredients:["Tortilla","Cheese","Chicken or veggies","Salsa"],
+    instructions:["Place cheese and filling on tortilla.","Fold in half.","Cook on skillet until cheese melts.","Serve hot with salsa."]
+  },
+  {
+    name:"Burrito",
+    img:"burrito.jpg",
+    type:"mexican",
+    time:"20 min",
+    diff:"Easy",
+    ingredients:["Large tortilla","Rice","Beans","Meat","Cheese","Salsa"],
+    instructions:["Lay out tortilla.","Add rice, beans, meat, cheese, salsa.","Fold sides and roll.","Serve warm."]
+  },
+  {
+    name:"Churros",
+    img:"churros.jpg",
+    type:"mexican",
+    time:"25 min",
+    diff:"Medium",
+    ingredients:["Flour","Water","Butter","Sugar","Cinnamon","Oil for frying"],
+    instructions:["Mix flour, water, butter to make dough.","Pipe dough into hot oil.","Fry until golden.","Roll in sugar-cinnamon mix.","Serve warm."]
+  },
+  {
+    name:"Cheeseburger",
+    img:"cheeseburger.jpg",
+    type:"american",
+    time:"20 min",
+    diff:"Easy",
+    ingredients:["Burger buns","Beef patty","Cheese","Lettuce","Tomato","Onion","Ketchup"],
+    instructions:["Cook beef patty.","Place on bun with cheese.","Add lettuce, tomato, onion, ketchup.","Serve immediately."]
+  },
+  {
+    name:"Fried Chicken",
+    img:"fried_chicken.jpg",
+    type:"american",
+    time:"30 min",
+    diff:"Medium",
+    ingredients:["Chicken pieces","Flour","Spices","Oil for frying"],
+    instructions:["Season chicken and coat with flour.","Heat oil and fry chicken.","Cook until golden and done.","Serve hot."]
+  },
+  {
+    name:"Mac and Cheese",
+    img:"mac_and_cheese.jpg",
+    type:"american",
+    time:"25 min",
+    diff:"Easy",
+    ingredients:["Macaroni","Cheddar cheese","Milk","Butter","Flour"],
+    instructions:["Cook macaroni.","Make cheese sauce with butter, flour, milk, cheese.","Mix macaroni and sauce.","Serve hot."]
+  },
+  {
+    name:"Caesar Salad",
+    img:"caesar_salad.jpg",
+    type:"lunch",
+    time:"12 min",
+    diff:"Easy",
+    ingredients:["Romaine lettuce","Croutons","Parmesan","Caesar dressing"],
+    instructions:["Chop lettuce.","Add croutons and parmesan.","Toss with dressing.","Serve chilled."]
+  },
+  {
+    name:"Pancakes",
+    img:"pancakes.jpg",
+    type:"breakfast",
+    time:"15 min",
+    diff:"Easy",
+    ingredients:["Flour","Eggs","Milk","Baking powder","Sugar","Butter"],
+    instructions:["Mix dry ingredients.","Add milk and eggs.","Cook on skillet with butter until golden.","Serve with syrup."]
+  },
+  {
+    name:"Omelette",
+    img:"omelette.jpg",
+    type:"breakfast",
+    time:"10 min",
+    diff:"Easy",
+    ingredients:["Eggs","Salt","Pepper","Cheese or veggies"],
+    instructions:["Beat eggs with salt and pepper.","Pour into skillet.","Add cheese or veggies.","Cook until set.","Fold and serve."]
+  },
+  {
+    name:"French Toast",
+    img:"french_toast.jpg",
+    type:"breakfast",
+    time:"12 min",
+    diff:"Easy",
+    ingredients:["Bread slices","Eggs","Milk","Cinnamon","Sugar","Butter"],
+    instructions:["Mix eggs, milk, sugar, cinnamon.","Dip bread in mixture.","Cook on skillet with butter until golden.","Serve with syrup."]
+  },
+  {
+    name:"Smoothie Bowl",
+    img:"smoothie_bowl.jpg",
+    type:"breakfast",
+    time:"8 min",
+    diff:"Easy",
+    ingredients:["Frozen fruits","Yogurt","Honey","Toppings like granola or berries"],
+    instructions:["Blend fruits with yogurt and honey.","Pour into bowl.","Top with granola, berries, or nuts.","Serve chilled."]
+  },
+  {
+    name:"Grilled Salmon",
+    img:"grilled_salmon.jpg",
+    type:"dinner",
+    time:"30 min",
+    diff:"Medium",
+    ingredients:["Salmon fillets","Olive oil","Salt","Pepper","Lemon"],
+    instructions:["Season salmon with oil, salt, pepper.","Grill until cooked.","Serve with lemon wedges."]
+  },
+  {
+    name:"Chocolate Cake",
+    img:"chocolate_cake.jpg",
+    type:"dessert",
+    time:"50 min",
+    diff:"Hard",
+    ingredients:["Flour","Sugar","Cocoa powder","Eggs","Butter","Baking powder"],
+    instructions:["Preheat oven to 180°C.","Mix dry and wet ingredients separately then combine.","Pour into pan.","Bake 30–40 min.","Cool and serve."]
+  },
+  {
+    name:"Ice Cream Sundae",
+    img:"ice_cream_sundae.jpg",
+    type:"dessert",
+    time:"5 min",
+    diff:"Easy",
+    ingredients:["Ice cream scoops","Chocolate syrup","Whipped cream","Cherries"],
+    instructions:["Place ice cream in bowl.","Add chocolate syrup, whipped cream, and cherry on top.","Serve immediately."]
+  },
+  {
+    name:"Brownies",
+    img:"brownies.jpg",
+    type:"dessert",
+    time:"35 min",
+    diff:"Medium",
+    ingredients:["Chocolate","Butter","Sugar","Eggs","Flour"],
+    instructions:["Preheat oven to 180°C.","Mix chocolate and butter.","Add sugar, eggs, flour.","Pour into pan and bake 25–30 min.","Cool and cut."]
+  },
+  {
+    name:"Butter Chicken",
+    img:"butter_chicken.jpg",
+    type:"indian",
+    time:"40 min",
+    diff:"Medium",
+    ingredients:["Chicken","Butter","Tomato puree","Cream","Spices"],
+    instructions:["Cook chicken with spices.","Make sauce with butter, tomato puree, cream.","Add chicken to sauce.","Simmer and serve with rice."]
+  },
+  {
+    name:"Chicken Biryani",
+    img:"chicken_biryani.jpg",
+    type:"indian",
+    time:"1 hr",
+    diff:"Hard",
+    ingredients:["Basmati rice","Chicken","Spices","Yogurt","Onions"],
+    instructions:["Cook chicken with spices and yogurt.","Layer partially cooked rice over chicken.","Cook together until done.","Serve hot with raita."]
+  },
+  {
+    name:"Paneer Tikka",
+    img:"paneer_tikka.jpg",
+    type:"indian",
+    time:"30 min",
+    diff:"Medium",
+    ingredients:["Paneer","Yogurt","Spices","Bell peppers","Onions"],
+    instructions:["Marinate paneer and veggies in yogurt and spices.","Grill until golden.","Serve with chutney."]
+  },
+  {
+    name:"Masala Dosa",
+    img:"masala_dosa.jpg",
+    type:"indian",
+    time:"40 min",
+    diff:"Medium",
+    ingredients:["Dosa batter","Potatoes","Onions","Spices","Oil"],
+    instructions:["Prepare potato filling with spices.","Spread dosa batter on skillet.","Add filling and fold.","Serve with chutney and sambar."]
+  },
+  {
+    name:"Pad Thai",
+    img:"pad_thai.jpg",
+    type:"thai",
+    time:"25 min",
+    diff:"Medium",
+    ingredients:["Rice noodles","Eggs","Tofu or shrimp","Bean sprouts","Peanuts","Tamarind paste"],
+    instructions:["Cook noodles and set aside.","Stir-fry tofu/shrimp, eggs.","Add noodles and sauce.","Toss with sprouts and peanuts.","Serve hot."]
+  },
+  {
+    name:"Tom Yum Soup",
+    img:"tom_yum_soup.jpg",
+    type:"thai",
+    time:"20 min",
+    diff:"Medium",
+    ingredients:["Shrimp","Mushrooms","Lemongrass","Kaffir lime leaves","Chili","Lime juice"],
+    instructions:["Boil water with lemongrass and lime leaves.","Add mushrooms and shrimp.","Season with chili and lime juice.","Serve hot."]
+  },
+  {
+    name:"Green Curry",
+    img:"green_curry.jpg",
+    type:"thai",
+    time:"35 min",
+    diff:"Medium",
+    ingredients:["Chicken or tofu","Green curry paste","Coconut milk","Vegetables","Basil"],
+    instructions:["Cook curry paste in pan.","Add coconut milk and protein.","Add vegetables and simmer.","Garnish with basil and serve."]
+  }
+];
+
+// Get recipe name from URL
 const params = new URLSearchParams(window.location.search);
-const name = params.get("name");
-const recipe = recipes[name];
+const urlName = params.get("name");
+
+// Match recipe (replace underscores with spaces to match names)
+const recipe = recipesArray.find(r=>r.name.toLowerCase().replace(/ /g,"_")===urlName);
 
 if(recipe){
-  document.getElementById("recipe-title").textContent = recipe.title;
+  document.getElementById("recipe-title").textContent = recipe.name;
   document.getElementById("recipe-img").src = recipe.img;
-  document.getElementById("recipe-img").alt = recipe.title;
+  document.getElementById("recipe-img").alt = recipe.name;
 
   const ingredientsEl = document.getElementById("ingredients");
   recipe.ingredients.forEach(i=>{
@@ -100,10 +318,9 @@ if(recipe){
     li.textContent = s;
     instructionsEl.appendChild(li);
   });
-} else {
+}else{
   document.getElementById("recipe-content").innerHTML = "<p>Recipe not found!</p>";
 }
 </script>
 </body>
-</html>
 </html>
