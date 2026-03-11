@@ -1,69 +1,622 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Recipe Details</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: var(--bg-color, #f9f9f9);
-      color: var(--text-color, #222);
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 20px;
-      background-color: var(--header-bg, #ff7f50);
-      color: white;
-    }
-    main {
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 0 15px;
-    }
-    h1 {
-      text-align: center;
-      margin-bottom: 10px;
-    }
-    .recipe-img {
-      width: 100%;
-      max-height: 400px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 20px;
-    }
-    h2 {
-      margin-top: 20px;
-    }
-    ul {
-      margin: 10px 0 20px 20px;
-    }
-    .back-button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 10px 20px;
-      background-color: var(--button-bg, #ff7f50);
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-    .back-button:hover {
-      background-color: var(--button-hover, #ff6333);
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Recipes</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Recipe Details</h1>
-  </header>
-  <main id="recipe-content">
-    <!-- Recipe will load here -->
-  </main>
-  <script src="script.js"></script>
+<header>
+  <h1>All Recipes</h1>
+  <a href="index.html" class="back-button">← Back to Home</a>
+  <button id="darkModeToggle">🌙</button>
+</header>
+<main>
+
+<!-- Recipe 1 -->
+<h1>Spaghetti Carbonara</h1>
+<img src="spaghetti_carbonara.jpg" alt="Spaghetti Carbonara" class="recipe-img">
+<h2>Ingredients</h2>
+<ul>
+  <li>200g spaghetti</li>
+  <li>100g pancetta</li>
+  <li>2 eggs</li>
+  <li>50g parmesan</li>
+  <li>Salt & pepper</li>
+</ul>
+<h2>Instructions</h2>
+<ol>
+  <li>Cook spaghetti in salted water.</li>
+  <li>Fry pancetta until crisp.</li>
+  <li>Mix eggs and parmesan in a bowl.</li>
+  <li>Drain pasta, remove from heat, mix with pancetta and egg-cheese mixture.</li>
+  <li>Serve immediately with extra parmesan.</li>
+</ol>
+<hr>
+
+<!-- Recipe 2 -->
+<h1>Lasagna</h1>
+<img src="lasagna.jpg" alt="Lasagna" class="recipe-img">
+<h2>Ingredients</h2>
+<ul>
+  <li>Lasagna sheets</li>
+  <li>500g minced beef</li>
+  <li>1 onion</li>
+  <li>2 cups tomato sauce</li>
+  <li>200g mozzarella</li>
+  <li>Bechamel sauce</li>
+</ul>
+<h2>Instructions</h2>
+<ol>
+  <li>Preheat oven to 180°C.</li>
+  <li>Cook minced beef with chopped onion until browned.</li>
+  <li>Layer lasagna sheets, meat sauce, bechamel, and mozzarella in baking dish.</li>
+  <li>Repeat layers and finish with cheese on top.</li>
+  <li>Bake 40-45 min until golden and bubbly.</li>
+</ol>
+<hr>
+
+<!-- Recipe 3 -->
+<h1>Margherita Pizza</h1>
+<img src="margherita_pizza.jpg" alt="Margherita Pizza" class="recipe-img">
+<h2>Ingredients</h2>
+<ul>
+  <li>Pizza dough</li>
+  <li>Tomato sauce</li>
+  <li>Mozzarella cheese</li>
+  <li>Fresh basil leaves</li>
+</ul>
+<h2>Instructions</h2>
+<ol>
+  <li>Preheat oven to 220°C.</li>
+  <li>Roll out pizza dough.</li>
+  <li>Spread tomato sauce evenly.</li>
+  <li>Add mozzarella and basil.</li>
+  <li>Bake 12-15 min until crust is golden.</li>
+</ol>
+<hr>
+
+<!-- Recipe 4 -->
+<h1>Tiramisu</h1>
+<img src="tiramisu.jpg" alt="Tiramisu" class="recipe-img">
+<h2>Ingredients</h2>
+<ul>
+  <li>Ladyfingers</li>
+  <li>250g mascarpone</li>
+  <li>3 eggs</li>
+  <li>100g sugar</li>
+  <li>Coffee</li>
+  <li>Cocoa powder</li>
+</ul>
+<h2>Instructions</h2>
+<ol>
+  <li>Brew strong coffee and let it cool.</li>
+  <li>Beat egg yolks with sugar, mix in mascarpone.</li>
+  <li>Whip egg whites until stiff, fold into mascarpone mixture.</li>
+  <li>Dip ladyfingers in coffee and layer in dish.</li>
+  <li>Spread cream mixture over layers, repeat.</li>
+  <li>Dust with cocoa powder and chill 3-4 hours.</li>
+</ol>
+<hr>
+
+<!-- Recipe 5 -->
+<h1>Sushi Rolls</h1>
+<img src="sushi_rolls.jpg" alt="Sushi Rolls" class="recipe-img">
+<h2>Ingredients</h2>
+<ul>
+  <li>Sushi rice</li>
+  <li>Nori sheets</li>
+  <li>Cucumber</li>
+  <li>Avocado</li>
+  <li>Carrot</li>
+  <li>Cooked seafood or tofu</li>
+</ul>
+<h2>Instructions</h2>
+<ol>
+  <li>Prepare sushi rice and let cool.</li>
+  <li>Place nori on bamboo mat, spread rice thinly.</li>
+  <li>Add fillings along one edge.</li>
+  <li>Roll tightly with bamboo mat.</li>
+  <li>Cut into bite-sized pieces and serve with soy sauce.</li>
+</ol>
+<hr>
+
+<!-- Recipe 6 -->
+<h1>Ramen</h1>
+<img src="ramen.jpg" alt="Ramen" class="recipe-img">
+<h2>Ingredients</h2>
+<ul>
+  <li>Ramen noodles</li>
+  <li>Chicken broth</li>
+  <li>Soy sauce</li>
+  <li>Eggs</li>
+  <li>Green onions</li>
+  <li>Pork slices</li>
+</ul>
+<h2>Instructions</h2>
+<ol>
+  <li>Boil eggs for 7 min and peel.</li>
+  <li>Heat broth, add soy sauce.</li>
+  <li>Cook noodles separately and drain.</li>
+  <li>Place noodles in bowl, pour broth over.</li>
+  <li>Top with pork, egg, and green onions.</li>
+</ol>
+<hr>
+
+<!-- Recipe 7 -->
+<h1>Tempura</h1>
+<img src="tempura.jpg" alt="Tempura" class="recipe-img">
+<h2>Ingredients</h2>
+<ul>
+  <li>Shrimp or vegetables</li>
+  <li>Tempura batter mix</li>
+  <li>Oil for frying</li>
+</ul>
+<h2>Instructions</h2>
+<ol>
+  <li>Prepare tempura batter according to instructions.</li>
+  <li>Heat oil to 180°C.</li>
+  <li>Dip shrimp/vegetables in batter and fry until golden.</li>
+  <li>Drain excess oil and serve with dipping sauce.</li>
+</ol>
+<hr>
+
+<!-- Recipe 8 -->
+<h1>Tacos al Pastor</h1>
+<img src="tacos_al_pastor.jpg" alt="Tacos al Pastor" class="recipe-img">
+<h2>Ingredients</h2>
+<ul>
+  <li>Tortillas</li>
+  <li>Pork shoulder</li>
+  <li>Pineapple</li>
+  <li>Onion</li>
+  <li>Cilantro</li>
+  <li>Al pastor marinade</li>
+</ul>
+<h2>Instructions</h2>
+<ol>
+  <li>Marinate pork in al pastor sauce 4–6 hours.</li>
+  <li>Grill or roast pork and pineapple.</li>
+  <li>Warm tortillas, assemble with pork, pineapple, onion, cilantro.</li>
+  <li>Serve with lime wedges.</li>
+</ol>
+<hr>
+
+<!-- Recipe 9 -->
+<h1>Quesadilla</h1>
+<img src="quesadilla.jpg" alt="Quesadilla" class="recipe-img">
+<h2>Ingredients</h2>
+<ul>
+  <li>Flour tortillas</li>
+  <li>Cheddar cheese</li>
+  <li>Chicken or vegetables (optional)</li>
+  <li>Salsa</li>
+</ul>
+<h2>Instructions</h2>
+<ol>
+  <li>Heat a pan and place a tortilla on it.</li>
+  <li>Add cheese and fillings, then top with another tortilla.</li>
+  <li>Cook until golden on both sides and cheese melts.</li>
+  <li>Cut into triangles and serve with salsa.</li>
+</ol>
+<hr>
+
+<!-- Recipe 10 -->
+<h1>Burrito</h1>
+<img src="burrito.jpg" alt="Burrito" class="recipe-img">
+<h2>Ingredients</h2>
+<ul>
+  <li>Flour tortilla</li>
+  <li>Rice</li>
+  <li>Beans</li>
+  <li>Chicken, beef, or vegetables</li>
+  <li>Salsa and cheese</li>
+</ul>
+<h2>Instructions</h2>
+<ol>
+  <li>Lay out the tortilla, add rice, beans, meat, and toppings.</li>
+  <li>Fold sides and roll tightly.</li>
+  <li>Serve warm with extra salsa if desired.</li>
+</ol>
+<hr>
+
+<!-- Recipe 11 -->
+<h1>Churros</h1>
+<img src="churros.jpg" alt="Churros" class="recipe-img">
+<h2>Ingredients</h2>
+<ul>
+  <li>Flour</li>
+  <li>Water</li>
+  <li>Butter</li>
+  <li>Sugar</li>
+  <li>Cinnamon</li>
+  <li>Oil for frying</li>
+</ul>
+<h2>Instructions</h2>
+<ol>
+  <li>Mix water, butter, and flour to form dough.</li>
+  <li>Pipe into hot oil and fry until golden.</li>
+  <li>Roll in sugar and cinnamon. Serve warm.</li>
+</ol>
+<hr>
+
+<!-- Recipe 12 -->
+<h1>Cheeseburger</h1>
+<img src="cheeseburger.jpg" alt="Cheeseburger" class="recipe-img">
+<h2>Ingredients</h2>
+<ul>
+  <li>Burger buns</li>
+  <li>Beef patties</li>
+  <li>Cheddar cheese</li>
+  <li>Lettuce</li>
+  <li>Tomato</li>
+  <li>Onion</li>
+  <li>Condiments</li>
+</ul>
+<h2>Instructions</h2>
+<ol>
+  <li>Cook beef patties to desired doneness.</li>
+  <li>Assemble burgers with buns, cheese, lettuce, tomato, onion, and condiments.</li>
+  <li>Serve immediately.</li>
+</ol>
+<hr>
+
+<!-- Recipe 13 -->
+<h1>Fried Chicken</h1>
+<img src="fried_chicken.jpg" alt="Fried Chicken" class="recipe-img">
+<h2>Ingredients</h2>
+<ul>
+  <li>Chicken pieces</li>
+  <li>Flour</li>
+  <li>Salt & pepper</li>
+  <li>Spices (paprika, garlic powder)</li>
+  <li>Oil for frying</li>
+</ul>
+<h2>Instructions</h2>
+<ol>
+  <li>Season chicken and coat with flour mixture.</li>
+  <li>Fry in hot oil until golden and cooked through.</li>
+  <li>Drain excess oil and serve.</li>
+</ol>
+<hr>
+
+<!-- Recipe 14 -->
+<h1>Mac and Cheese</h1>
+<img src="mac_and_cheese.jpg" alt="Mac and Cheese" class="recipe-img">
+<h2>Ingredients</h2>
+<ul>
+  <li>Macaroni pasta</li>
+  <li>Cheddar cheese</li>
+  <li>Milk</li>
+  <li>Butter</li>
+  <li>Flour</li>
+  <li>Salt & pepper</li>
+</ul>
+<h2>Instructions</h2>
+<ol>
+  <li>Cook macaroni, drain.</li>
+  <li>Make cheese sauce with butter, flour, milk, and cheese.</li>
+  <li>Mix pasta with sauce and serve warm.</li>
+</ol>
+<hr>
+
+<!-- Recipe 15 -->
+<h1>Caesar Salad</h1>
+<img src="caesar_salad.jpg" alt="Caesar Salad" class="recipe-img">
+<h2>Ingredients</h2>
+<ul>
+  <li>Romaine lettuce</li>
+  <li>Croutons</li>
+  <li>Parmesan cheese</li>
+  <li>Caesar dressing</li>
+  <li>Chicken (optional)</li>
+</ul>
+<h2>Instructions</h2>
+<ol>
+  <li>Chop lettuce and toss with croutons and dressing.</li>
+  <li>Add chicken if desired.</li>
+  <li>Top with parmesan and serve.</li>
+</ol>
+<hr>
+
+<!-- Recipe 16 -->
+<h1>Pancakes</h1>
+<img src="pancakes.jpg" alt="Pancakes" class="recipe-img">
+<h2>Ingredients</h2>
+<ul>
+  <li>Flour</li>
+  <li>Milk</li>
+  <li>Eggs</li>
+  <li>Sugar</li>
+  <li>Baking powder</li>
+  <li>Butter</li>
+</ul>
+<h2>Instructions</h2>
+<ol>
+  <li>Mix dry ingredients, then add milk and eggs.</li>
+  <li>Cook on greased pan until bubbles form, flip and cook other side.</li>
+  <li>Serve with syrup or toppings.</li>
+</ol>
+<hr>
+
+<!-- Recipe 17 -->
+<h1>Omelette</h1>
+<img src="omelette.jpg" alt="Omelette" class="recipe-img">
+<h2>Ingredients</h2>
+<ul>
+  <li>Eggs</li>
+  <li>Milk</li>
+  <li>Salt & pepper</li>
+  <li>Butter</li>
+  <li>Fillings: cheese, vegetables, meat (optional)</li>
+</ul>
+<h2>Instructions</h2>
+<ol>
+  <li>Beat eggs with milk, salt, and pepper.</li>
+  <li>Heat butter in pan, pour in eggs.</li>
+  <li>Add fillings, cook until set, fold and serve.</li>
+</ol>
+<hr>
+
+<!-- Recipe 18 -->
+<h1>French Toast</h1>
+<img src="french_toast.jpg" alt="French Toast" class="recipe-img">
+<h2>Ingredients</h2>
+<ul>
+  <li>Bread slices</li>
+  <li>Eggs</li>
+  <li>Milk</li>
+  <li>Sugar</li>
+  <li>Cinnamon</li>
+  <li>Butter</li>
+</ul>
+<h2>Instructions</h2>
+<ol>
+  <li>Beat eggs, milk, sugar, and cinnamon.</li>
+  <li>Dip bread slices in mixture.</li>
+  <li>Cook on buttered pan until golden both sides.</li>
+  <li>Serve with syrup or fruit.</li>
+</ol>
+<hr>
+
+<!-- Recipe 19 -->
+<h1>Smoothie Bowl</h1>
+<img src="smoothie_bowl.jpg" alt="Smoothie Bowl" class="recipe-img">
+<h2>Ingredients</h2>
+<ul>
+  <li>Frozen fruits</li>
+  <li>Milk or yogurt</li>
+  <li>Toppings: granola, seeds, fruits</li>
+</ul>
+<h2>Instructions</h2>
+<ol>
+  <li>Blend frozen fruits with milk or yogurt.</li>
+  <li>Pour into bowl and add toppings.</li>
+  <li>Serve immediately.</li>
+</ol>
+<hr>
+
+<!-- Recipe 20 -->
+<h1>Grilled Salmon</h1>
+<img src="grilled_salmon.jpg" alt="Grilled Salmon" class="recipe-img">
+<h2>Ingredients</h2>
+<ul>
+  <li>Salmon fillets</li>
+  <li>Lemon juice</li>
+  <li>Olive oil</li>
+  <li>Salt & pepper</li>
+  <li>Herbs (optional)</li>
+</ul>
+<h2>Instructions</h2>
+<ol>
+  <li>Marinate salmon with lemon, olive oil, salt, pepper, and herbs.</li>
+  <li>Grill 4-5 min per side until cooked.</li>
+  <li>Serve with vegetables or rice.</li>
+</ol>
+<hr>
+
+<!-- Recipe 21 -->
+<h1>Chocolate Cake</h1>
+<img src="chocolate_cake.jpg" alt="Chocolate Cake" class="recipe-img">
+<h2>Ingredients</h2>
+<ul>
+  <li>Flour</li>
+  <li>Sugar</li>
+  <li>Cocoa powder</li>
+  <li>Baking powder</li>
+  <li>Eggs</li>
+  <li>Milk</li>
+  <li>Butter</li>
+</ul>
+<h2>Instructions</h2>
+<ol>
+  <li>Preheat oven to 180°C.</li>
+  <li>Mix dry ingredients, add eggs, milk, and melted butter.</li>
+  <li>Pour into pan and bake 30-35 min.</li>
+  <li>Cool, frost if desired, and serve.</li>
+</ol>
+<hr>
+
+<!-- Recipe 22 -->
+<h1>Ice Cream Sundae</h1>
+<img src="ice_cream_sundae.jpg" alt="Ice Cream Sundae" class="recipe-img">
+<h2>Ingredients</h2>
+<ul>
+  <li>Ice cream</li>
+  <li>Chocolate syrup</li>
+  <li>Whipped cream</li>
+  <li>Cherries or sprinkles</li>
+</ul>
+<h2>Instructions</h2>
+<ol>
+  <li>Scoop ice cream into bowl.</li>
+  <li>Drizzle chocolate syrup and add whipped cream.</li>
+  <li>Top with cherries or sprinkles. Serve immediately.</li>
+</ol>
+<hr>
+
+<!-- Recipe 23 -->
+<h1>Brownies</h1>
+<img src="brownies.jpg" alt="Brownies" class="recipe-img">
+<h2>Ingredients</h2>
+<ul>
+  <li>Chocolate</li>
+  <li>Butter</li>
+  <li>Sugar</li>
+  <li>Flour</li>
+  <li>Eggs</li>
+  <li>Vanilla extract</li>
+</ul>
+<h2>Instructions</h2>
+<ol>
+  <li>Preheat oven to 175°C.</li>
+  <li>Melt chocolate and butter, mix with sugar, eggs, flour, and vanilla.</li>
+  <li>Pour into pan and bake 25-30 min. Cool before slicing.</li>
+</ol>
+<hr>
+
+<!-- Recipe 24 -->
+<h1>Butter Chicken</h1>
+<img src="butter_chicken.jpg" alt="Butter Chicken" class="recipe-img">
+<h2>Ingredients</h2>
+<ul>
+  <li>Chicken pieces</li>
+  <li>Butter</li>
+  <li>Tomato puree</li>
+  <li>Cream</li>
+  <li>Spices: garam masala, turmeric, chili powder</li>
+</ul>
+<h2>Instructions</h2>
+<ol>
+  <li>Cook chicken with butter and spices.</li>
+  <li>Add tomato puree and cream, simmer until cooked.</li>
+  <li>Serve with rice or naan.</li>
+</ol>
+<hr>
+
+<!-- Recipe 25 -->
+<h1>Chicken Biryani</h1>
+<img src="chicken_biryani.jpg" alt="Chicken Biryani" class="recipe-img">
+<h2>Ingredients</h2>
+<ul>
+  <li>Basmati rice</li>
+  <li>Chicken pieces</li>
+  <li>Yogurt</li>
+  <li>Onion</li>
+  <li>Spices: cumin, garam masala, turmeric</li>
+  <li>Oil or ghee</li>
+</ul>
+<h2>Instructions</h2>
+<ol>
+  <li>Marinate chicken in yogurt and spices.</li>
+  <li>Cook rice separately.</li>
+  <li>Layer rice and chicken in pot, cook on low heat 20-25 min.</li>
+  <li>Serve hot with raita.</li>
+</ol>
+<hr>
+
+<!-- Recipe 26 -->
+<h1>Paneer Tikka</h1>
+<img src="paneer_tikka.jpg" alt="Paneer Tikka" class="recipe-img">
+<h2>Ingredients</h2>
+<ul>
+  <li>Paneer cubes</li>
+  <li>Yogurt</li>
+  <li>Spices: chili powder, turmeric, garam masala</li>
+  <li>Oil</li>
+  <li>Bell peppers and onions</li>
+</ul>
+<h2>Instructions</h2>
+<ol>
+  <li>Marinate paneer and vegetables in spiced yogurt.</li>
+  <li>Skewer and grill or bake until charred edges.</li>
+  <li>Serve with mint chutney.</li>
+</ol>
+<hr>
+
+<!-- Recipe 27 -->
+<h1>Masala Dosa</h1>
+<img src="masala_dosa.jpg" alt="Masala Dosa" class="recipe-img">
+<h2>Ingredients</h2>
+<ul>
+  <li>Dosa batter</li>
+  <li>Potatoes</li>
+  <li>Onions</li>
+  <li>Spices: mustard seeds, turmeric, curry leaves</li>
+  <li>Oil</li>
+</ul>
+<h2>Instructions</h2>
+<ol>
+  <li>Prepare potato filling with onions and spices.</li>
+  <li>Cook dosa on skillet, place filling inside, fold.</li>
+  <li>Serve hot with chutney and sambar.</li>
+</ol>
+<hr>
+
+<!-- Recipe 28 -->
+<h1>Pad Thai</h1>
+<img src="pad_thai.jpg" alt="Pad Thai" class="recipe-img">
+<h2>Ingredients</h2>
+<ul>
+  <li>Rice noodles</li>
+  <li>Shrimp or chicken</li>
+  <li>Eggs</li>
+  <li>Bean sprouts</li>
+  <li>Peanuts</li>
+  <li>Pad Thai sauce</li>
+</ul>
+<h2>Instructions</h2>
+<ol>
+  <li>Cook noodles according to package.</li>
+  <li>Stir-fry protein, eggs, and vegetables.</li>
+  <li>Add noodles and sauce, mix well.</li>
+  <li>Top with crushed peanuts and lime.</li>
+</ol>
+<hr>
+
+<!-- Recipe 29 -->
+<h1>Tom Yum Soup</h1>
+<img src="tom_yum_soup.jpg" alt="Tom Yum Soup" class="recipe-img">
+<h2>Ingredients</h2>
+<ul>
+  <li>Shrimp or chicken</li>
+  <li>Lemongrass</li>
+  <li>Kaffir lime leaves</li>
+  <li>Galangal</li>
+  <li>Mushrooms</li>
+  <li>Fish sauce, lime juice, chili</li>
+</ul>
+<h2>Instructions</h2>
+<ol>
+  <li>Boil water with lemongrass, lime leaves, and galangal.</li>
+  <li>Add mushrooms and protein, cook until done.</li>
+  <li>Season with fish sauce, lime juice, and chili.</li>
+  <li>Serve hot.</li>
+</ol>
+<hr>
+
+<!-- Recipe 30 -->
+<h1>Green Curry</h1>
+<img src="green_curry.jpg" alt="Green Curry" class="recipe-img">
+<h2>Ingredients</h2>
+<ul>
+  <li>Chicken or tofu</li>
+  <li>Green curry paste</li>
+  <li>Coconut milk</li>
+  <li>Vegetables</li>
+  <li>Basil leaves</li>
+</ul>
+<h2>Instructions</h2>
+<ol>
+  <li>Cook curry paste in a pan.</li>
+  <li>Add coconut milk, protein, and vegetables.</li>
+  <li>Simmer until cooked, garnish with basil.</li>
+  <li>Serve with rice.</li>
+</ol>
+<hr>
+
+</main>
+<script src="script.js"></script>
 </body>
 </html>
