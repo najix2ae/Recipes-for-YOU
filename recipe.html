@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -7,89 +7,103 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1 id="recipe-title"></h1>
-    <a href="index.html">⬅ Back</a>
-  </header>
+<header>
+  <a href="index.html">⬅ Back</a>
+  <h1 id="recipe-title"></h1>
+</header>
 
-  <div id="recipe-content">
-    <img id="recipe-img" src="" alt="">
-    <h3>Ingredients:</h3>
-    <ul id="ingredients"></ul>
-    <h3>Instructions:</h3>
-    <ol id="instructions"></ol>
-  </div>
+<div id="recipe-content">
+  <img id="recipe-img" src="" alt="">
+  <h3>Ingredients:</h3>
+  <ul id="ingredients"></ul>
+  <h3>Instructions:</h3>
+  <ol id="instructions"></ol>
+</div>
 
-  <script>
-    // Define actual recipes
-    const recipes = {
-      spaghetti_carbonara: {
-        title: "Spaghetti Carbonara",
-        img: "spaghetti_carbonara.jpg",
-        ingredients: [
-          "200g spaghetti",
-          "100g pancetta",
-          "2 eggs",
-          "50g grated parmesan",
-          "Salt & pepper"
-        ],
-        instructions: [
-          "Cook spaghetti in salted water.",
-          "Fry pancetta until crispy.",
-          "Beat eggs and mix with parmesan.",
-          "Drain pasta and mix with pancetta.",
-          "Remove from heat and add egg-cheese mixture.",
-          "Serve immediately."
-        ]
-      },
-      lasagna: {
-        title: "Lasagna",
-        img: "lasagna.jpg",
-        ingredients: [
-          "Lasagna sheets",
-          "500g minced beef",
-          "2 cups tomato sauce",
-          "200g mozzarella",
-          "Bechamel sauce"
-        ],
-        instructions: [
-          "Preheat oven to 180°C.",
-          "Cook minced beef with tomato sauce.",
-          "Layer lasagna sheets, meat, and bechamel in a dish.",
-          "Top with mozzarella.",
-          "Bake for 40 minutes.",
-          "Let cool slightly and serve."
-        ]
-      }
-      // Add more recipes here...
-    };
+<script>
+// Define recipes (same as script.js)
+const recipes = {
+  spaghetti_carbonara: {
+    title: "Spaghetti Carbonara",
+    img: "spaghetti_carbonara.jpg",
+    ingredients:["200g spaghetti","100g pancetta","2 eggs","50g parmesan","Salt & pepper"],
+    instructions:[
+      "Cook spaghetti in salted water.",
+      "Fry pancetta until crispy.",
+      "Beat eggs and mix with parmesan.",
+      "Drain pasta and mix with pancetta.",
+      "Remove from heat and add egg-cheese mixture.",
+      "Serve immediately."
+    ]
+  },
+  lasagna: {
+    title: "Lasagna",
+    img: "lasagna.jpg",
+    ingredients:["Lasagna sheets","500g minced beef","2 cups tomato sauce","200g mozzarella","Bechamel sauce"],
+    instructions:[
+      "Preheat oven to 180°C.",
+      "Cook minced beef with tomato sauce.",
+      "Layer lasagna sheets, meat, and bechamel in a dish.",
+      "Top with mozzarella.",
+      "Bake for 40 minutes.",
+      "Let cool slightly and serve."
+    ]
+  },
+  margherita_pizza: {
+    title: "Margherita Pizza",
+    img: "margherita_pizza.jpg",
+    ingredients:["Pizza dough","Tomato sauce","Mozzarella","Basil leaves"],
+    instructions:[
+      "Preheat oven to 220°C.",
+      "Roll out dough and add tomato sauce.",
+      "Top with mozzarella and basil.",
+      "Bake for 10–12 minutes.",
+      "Serve hot."
+    ]
+  },
+  tiramisu: {
+    title: "Tiramisu",
+    img: "tiramisu.jpg",
+    ingredients:["Ladyfingers","Mascarpone","Coffee","Cocoa powder","Sugar","Eggs"],
+    instructions:[
+      "Mix mascarpone, eggs, and sugar.",
+      "Dip ladyfingers in coffee and layer.",
+      "Add mascarpone mixture on top.",
+      "Repeat layers.",
+      "Chill for 4 hours.",
+      "Sprinkle cocoa powder before serving."
+    ]
+  }
+  // Add all other recipes here
+};
 
-    // Get recipe from URL
-    const params = new URLSearchParams(window.location.search);
-    const name = params.get("name");
-    const recipe = recipes[name];
+// Get recipe from URL
+const params = new URLSearchParams(window.location.search);
+const name = params.get("name");
+const recipe = recipes[name];
 
-    if(recipe){
-      document.getElementById("recipe-title").textContent = recipe.title;
-      document.getElementById("recipe-img").src = recipe.img;
-      document.getElementById("recipe-img").alt = recipe.title;
+if(recipe){
+  document.getElementById("recipe-title").textContent = recipe.title;
+  document.getElementById("recipe-img").src = recipe.img;
+  document.getElementById("recipe-img").alt = recipe.title;
 
-      const ingredientsEl = document.getElementById("ingredients");
-      recipe.ingredients.forEach(i => {
-        const li = document.createElement("li");
-        li.textContent = i;
-        ingredientsEl.appendChild(li);
-      });
+  const ingredientsEl = document.getElementById("ingredients");
+  recipe.ingredients.forEach(i=>{
+    const li = document.createElement("li");
+    li.textContent = i;
+    ingredientsEl.appendChild(li);
+  });
 
-      const instructionsEl = document.getElementById("instructions");
-      recipe.instructions.forEach(step => {
-        const li = document.createElement("li");
-        li.textContent = step;
-        instructionsEl.appendChild(li);
-      });
-    } else {
-      document.getElementById("recipe-content").innerHTML = "<p>Recipe not found!</p>";
-    }
-  </script>
+  const instructionsEl = document.getElementById("instructions");
+  recipe.instructions.forEach(s=>{
+    const li = document.createElement("li");
+    li.textContent = s;
+    instructionsEl.appendChild(li);
+  });
+} else {
+  document.getElementById("recipe-content").innerHTML = "<p>Recipe not found!</p>";
+}
+</script>
 </body>
+</html>
 </html>
