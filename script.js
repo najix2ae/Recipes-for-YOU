@@ -1,160 +1,96 @@
 // ================================
-// 1️⃣ Recipe List (local images)
+// Recipes array (30+ recipes)
 // ================================
-
 const recipes = [
-  { name:"Spaghetti Carbonara", type:"italian", time:"25 min", diff:"Medium", img:"spaghetti_carbonara.jpg" },
-  { name:"Lasagna", type:"italian", time:"1 hr", diff:"Hard", img:"lasagna.jpg" },
-  { name:"Margherita Pizza", type:"italian", time:"30 min", diff:"Medium", img:"margherita_pizza.jpg" },
-  { name:"Tiramisu", type:"italian", time:"45 min", diff:"Medium", img:"tiramisu.jpg" },
-  { name:"Sushi Rolls", type:"japanese", time:"50 min", diff:"Hard", img:"sushi_rolls.jpg" },
-  { name:"Ramen", type:"japanese", time:"40 min", diff:"Medium", img:"ramen.jpg" },
-  { name:"Tempura", type:"japanese", time:"20 min", diff:"Easy", img:"tempura.jpg" },
-  { name:"Tacos al Pastor", type:"mexican", time:"20 min", diff:"Medium", img:"tacos_al_pastor.jpg" },
-  { name:"Quesadilla", type:"mexican", time:"10 min", diff:"Easy", img:"quesadilla.jpg" },
-  { name:"Burrito", type:"mexican", time:"20 min", diff:"Easy", img:"burrito.jpg" },
-  { name:"Churros", type:"mexican", time:"25 min", diff:"Medium", img:"churros.jpg" },
-  { name:"Cheeseburger", type:"american", time:"20 min", diff:"Easy", img:"cheeseburger.jpg" },
-  { name:"Fried Chicken", type:"american", time:"30 min", diff:"Medium", img:"fried_chicken.jpg" },
-  { name:"Mac and Cheese", type:"american", time:"25 min", diff:"Easy", img:"mac_and_cheese.jpg" },
-  { name:"Caesar Salad", type:"lunch", time:"12 min", diff:"Easy", img:"caesar_salad.jpg" },
-  { name:"Pancakes", type:"breakfast", time:"15 min", diff:"Easy", img:"pancakes.jpg" },
-  { name:"Omelette", type:"breakfast", time:"10 min", diff:"Easy", img:"omelette.jpg" },
-  { name:"French Toast", type:"breakfast", time:"12 min", diff:"Easy", img:"french_toast.jpg" },
-  { name:"Smoothie Bowl", type:"breakfast", time:"8 min", diff:"Easy", img:"smoothie_bowl.jpg" },
-  { name:"Grilled Salmon", type:"dinner", time:"30 min", diff:"Medium", img:"grilled_salmon.jpg" },
-  { name:"Chocolate Cake", type:"dessert", time:"50 min", diff:"Hard", img:"chocolate_cake.jpg" },
-  { name:"Ice Cream Sundae", type:"dessert", time:"5 min", diff:"Easy", img:"ice_cream_sundae.jpg" },
-  { name:"Brownies", type:"dessert", time:"35 min", diff:"Medium", img:"brownies.jpg" },
-  { name:"Butter Chicken", type:"indian", time:"40 min", diff:"Medium", img:"butter_chicken.jpg" },
-  { name:"Chicken Biryani", type:"indian", time:"1 hr", diff:"Hard", img:"chicken_biryani.jpg" },
-  { name:"Paneer Tikka", type:"indian", time:"30 min", diff:"Medium", img:"paneer_tikka.jpg" },
-  { name:"Masala Dosa", type:"indian", time:"40 min", diff:"Medium", img:"masala_dosa.jpg" },
-  { name:"Pad Thai", type:"thai", time:"25 min", diff:"Medium", img:"pad_thai.jpg" },
-  { name:"Tom Yum Soup", type:"thai", time:"20 min", diff:"Medium", img:"tom_yum_soup.jpg" },
-  { name:"Green Curry", type:"thai", time:"35 min", diff:"Medium", img:"green_curry.jpg" }
+  {name:"Spaghetti Carbonara", img:"spaghetti_carbonara.jpg", type:"italian", time:"25 min", diff:"Medium",
+    ingredients:["200g spaghetti","100g pancetta","2 eggs","50g parmesan","Salt & pepper"],
+    instructions:["Cook spaghetti in salted water.","Fry pancetta until crispy.","Beat eggs and mix with parmesan.","Drain pasta and mix with pancetta.","Remove from heat and add egg-cheese mixture.","Serve immediately."]
+  },
+  {name:"Lasagna", img:"lasagna.jpg", type:"italian", time:"1 hr", diff:"Hard",
+    ingredients:["Lasagna sheets","500g minced beef","2 cups tomato sauce","200g mozzarella","Bechamel sauce"],
+    instructions:["Preheat oven to 180°C.","Cook minced beef with tomato sauce.","Layer lasagna sheets, meat, and bechamel in a dish.","Top with mozzarella.","Bake for 40 minutes.","Let cool slightly and serve."]
+  },
+  {name:"Margherita Pizza", img:"margherita_pizza.jpg", type:"italian", time:"30 min", diff:"Medium",
+    ingredients:["Pizza dough","Tomato sauce","Mozzarella","Basil leaves"],
+    instructions:["Preheat oven to 220°C.","Roll out dough and add tomato sauce.","Top with mozzarella and basil.","Bake for 10–12 minutes.","Serve hot."]
+  },
+  {name:"Tiramisu", img:"tiramisu.jpg", type:"italian", time:"45 min", diff:"Medium",
+    ingredients:["Ladyfingers","Mascarpone","Coffee","Cocoa powder","Sugar","Eggs"],
+    instructions:["Mix mascarpone, eggs, and sugar.","Dip ladyfingers in coffee and layer.","Add mascarpone mixture on top.","Repeat layers.","Chill for 4 hours.","Sprinkle cocoa powder before serving."]
+  },
+  {name:"Sushi Rolls", img:"sushi_rolls.jpg", type:"japanese", time:"50 min", diff:"Hard",
+    ingredients:["Sushi rice","Nori sheets","Raw fish or veggies","Soy sauce","Wasabi"],
+    instructions:["Cook sushi rice and let it cool.","Place nori on bamboo mat.","Spread rice evenly on nori.","Add filling.","Roll tightly and slice.","Serve with soy sauce and wasabi."]
+  },
+  // … Add all other recipes here
 ];
 
 // ================================
-// 2️⃣ Select Containers
+// Containers
 // ================================
 const container = document.getElementById("recipes");
-const trending = document.getElementById("trending");
 
 // ================================
-// 3️⃣ Function to Create Recipe Cards
+// Render recipe cards
 // ================================
 function createCard(r){
+  const urlName = r.name.toLowerCase().replace(/ /g,"_");
   return `
-    <div class="recipe" data-type="${r.type}">
-      <img src="${r.img}" alt="${r.name}">
-      <div class="content">
-        <h3>${r.name}</h3>
-        <p>⏱ ${r.time}</p>
-        <p>📊 ${r.diff}</p>
-// When clicking "View" button, redirect to recipe page
-document.addEventListener("click", function(e){
-  if(e.target.classList.contains("view")){
-    const recipeName = e.target.parentElement.querySelector("h3").textContent;
-    // Replace spaces with underscores for URL
-    const urlName = recipeName.toLowerCase().replace(/ /g,"_");
-    window.location.href = `recipe.html?name=${urlName}`;
-  }
-});
-        <button class="fav">❤️</button>
-        <div class="rating">
-          <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-        </div>
-        <div class="details">
-          <p>Type: ${r.type}</p>
-        </div>
+  <div class="recipe" data-type="${r.type}">
+    <img src="${r.img}" alt="${r.name}">
+    <div class="content">
+      <h3>${r.name}</h3>
+      <p>⏱ ${r.time}</p>
+      <p>📊 ${r.diff}</p>
+      <button class="view" data-url="${urlName}">View Recipe</button>
+      <div class="favorites">
+        <span class="star" data-name="${urlName}">☆</span>
       </div>
     </div>
-  `;
+  </div>`;
 }
 
-// ================================
-// 4️⃣ Render All Recipes
-// ================================
-if(container){
-  recipes.forEach(r=>{
-    container.innerHTML += createCard(r);
-  });
+function renderRecipes(list){
+  container.innerHTML = "";
+  list.forEach(r=> container.innerHTML += createCard(r));
 }
 
-// ================================
-// 5️⃣ Render Trending (first 8)
-// ================================
-if(trending){
-  recipes.slice(0,8).forEach(r=>{
-    trending.innerHTML += createCard(r);
-  });
-}
+// Initial render
+renderRecipes(recipes);
 
 // ================================
-// 6️⃣ Expand Recipe Details
+// View recipe redirect
 // ================================
 document.addEventListener("click", function(e){
   if(e.target.classList.contains("view")){
-    const d = e.target.parentElement.querySelector(".details");
-    d.style.display = d.style.display==="block" ? "none" : "block";
+    const urlName = e.target.dataset.url;
+    window.location.href = `recipe.html?name=${urlName}`;
+  }
+  // Toggle favorite
+  if(e.target.classList.contains("star")){
+    e.target.textContent = e.target.textContent==="☆"?"★":"☆";
   }
 });
 
 // ================================
-// 7️⃣ Favorite Toggle
+// Search & filter
 // ================================
-document.addEventListener("click", function(e){
-  if(e.target.classList.contains("fav")){
-    e.target.classList.toggle("active");
-  }
+document.getElementById("search").addEventListener("input", e=>{
+  const val = e.target.value.toLowerCase();
+  const filtered = recipes.filter(r=>r.name.toLowerCase().includes(val));
+  renderRecipes(filtered);
+});
+
+document.getElementById("type-filter").addEventListener("change", e=>{
+  const val = e.target.value;
+  const filtered = val==="all"?recipes:recipes.filter(r=>r.type===val);
+  renderRecipes(filtered);
 });
 
 // ================================
-// 8️⃣ Star Rating
+// Dark mode toggle
 // ================================
-document.addEventListener("click", function(e){
-  if(e.target.parentElement.classList.contains("rating")){
-    const stars = [...e.target.parentElement.children];
-    stars.forEach((s,i)=>{
-      s.textContent = i <= stars.indexOf(e.target) ? "★" : "☆";
-    });
-  }
-});
-
-// ================================
-// 9️⃣ Search
-// ================================
-const searchBar = document.getElementById("search");
-if(searchBar){
-  searchBar.addEventListener("input", function(){
-    const val = this.value.toLowerCase();
-    document.querySelectorAll(".recipe").forEach(r=>{
-      const title = r.querySelector("h3").textContent.toLowerCase();
-      r.style.display = title.includes(val) ? "block" : "none";
-    });
-  });
-}
-
-// ================================
-// 🔟 Filter by Type
-// ================================
-const filter = document.getElementById("filter");
-if(filter){
-  filter.addEventListener("change", function(){
-    const v = this.value;
-    document.querySelectorAll(".recipe").forEach(r=>{
-      if(v==="all") r.style.display="block";
-      else r.style.display = r.dataset.type===v ? "block" : "none";
-    });
-  });
-}
-
-// ================================
-// 1️⃣1️⃣ Dark Mode
-// ================================
-function toggleDark(){
+const darkBtn = document.getElementById("dark-mode-toggle");
+darkBtn.addEventListener("click", ()=>{
   document.body.classList.toggle("dark");
-
-}
-
+});
