@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Panel</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.loginBox{
+background:white;
+max-width:400px;
+margin:auto;
+margin-top:120px;
+padding:25px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+text-align:center;
+}
+
+#adminPanel{
+display:none;
+}
+
+input{
+width:100%;
+padding:10px;
+margin-top:10px;
+}
+
+button{
+margin-top:10px;
+padding:10px;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="login" class="loginBox">
+
+<h2>Admin Login</h2>
+
+<input id="password" type="password" placeholder="Enter password">
+
+<button onclick="checkPassword()">Login</button>
+
+<p id="error" style="color:red;"></p>
+
+</div>
+
+
+<div id="adminPanel">
+
+<h1 style="text-align:center">Admin Recipes</h1>
+
+<div id="adminList" class="container"></div>
+
+<div style="text-align:center;margin-top:20px;">
+<button onclick="location.href='index.html'">Back</button>
+</div>
+
+</div>
+
+
+<script>
+
+function checkPassword(){
+
+let pass=document.getElementById("password").value
+
+if(pass==="bestrecipeadmineverisnaji2306"){
+
+document.getElementById("login").style.display="none"
+document.getElementById("adminPanel").style.display="block"
+
+loadRecipes()
+
+}else{
+
+document.getElementById("error").textContent="Wrong password"
+
+}
+
+}
+
+
+
+function loadRecipes(){
+
+let data=JSON.parse(localStorage.getItem("recipes")||"[]")
+
+let list=document.getElementById("adminList")
+
+data.forEach(r=>{
+
+list.innerHTML+=`
+
+<div class="recipe">
+
+<img src="${r.image}">
+
+<div class="content">
+
+<h3>${r.name}</h3>
+
+<p>${r.ingredients}</p>
+
+</div>
+
+</div>
+
+`
+
+})
+
+}
+
+</script>
+
+</body>
+</html>

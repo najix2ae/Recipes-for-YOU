@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>World Recipes</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+<h1>🌍 World Recipes</h1>
+
+<div class="topButtons">
+<button onclick="toggleDark()">🌙</button>
+<button onclick="location.href='admin.html'">Admin</button>
+<button class="addBtn" onclick="location.href='add.html'">+</button>
+</div>
+
+<div class="controls">
+
+<input id="search" placeholder="Search recipes">
+
+<select id="filter">
+<option value="all">All cuisines</option>
+<option value="italian">Italian</option>
+<option value="japanese">Japanese</option>
+<option value="mexican">Mexican</option>
+<option value="american">American</option>
+<option value="chinese">Chinese</option>
+<option value="indian">Indian</option>
+</select>
+
+</div>
+
+</header>
+<h2 class="sectionTitle">🔥 Trending Recipes</h2>
+
+<div class="trending" id="trending"></div>
+
+<h2 class="sectionTitle">🍳 All Recipes</h2>
+
+<div class="container" id="recipes"></div>
+
+<div class="recipe" data-type="italian">
+<img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b">
+<div class="content">
+<h3>Spaghetti Carbonara</h3>
+<button class="view">View</button>
+<button class="fav">⭐</button>
+<div class="details">
+<p>Spaghetti, eggs, pancetta, pecorino cheese.</p>
+</div>
+</div>
+</div>
+
+<div class="recipe" data-type="italian">
+<img src="https://images.unsplash.com/photo-1600891964092-4316c288032e">
+<div class="content">
+<h3>Lasagna</h3>
+<button class="view">View</button>
+<button class="fav">⭐</button>
+<div class="details">
+<p>Pasta sheets, beef, tomato sauce, mozzarella.</p>
+</div>
+</div>
+</div>
+
+<div class="recipe" data-type="japanese">
+<img src="https://images.unsplash.com/photo-1553621042-f6e147245754">
+<div class="content">
+<h3>Sushi Rolls</h3>
+<button class="view">View</button>
+<button class="fav">⭐</button>
+<div class="details">
+<p>Sushi rice, nori, fish, cucumber.</p>
+</div>
+</div>
+</div>
+
+<div class="recipe" data-type="japanese">
+<img src="https://images.unsplash.com/photo-1604908176997-4312c5a2b7a2">
+<div class="content">
+<h3>Ramen</h3>
+<button class="view">View</button>
+<button class="fav">⭐</button>
+<div class="details">
+<p>Noodles, broth, egg, pork slices.</p>
+</div>
+</div>
+</div>
+
+<div class="recipe" data-type="mexican">
+<img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092">
+<div class="content">
+<h3>Tacos</h3>
+<button class="view">View</button>
+<button class="fav">⭐</button>
+<div class="details">
+<p>Tortillas, beef, lettuce, tomatoes.</p>
+</div>
+</div>
+</div>
+
+<div class="recipe" data-type="mexican">
+<img src="https://images.unsplash.com/photo-1601924638867-3ec2f2f2b9a9">
+<div class="content">
+<h3>Quesadilla</h3>
+<button class="view">View</button>
+<button class="fav">⭐</button>
+<div class="details">
+<p>Tortilla, cheese, chicken.</p>
+</div>
+</div>
+</div>
+
+<div class="recipe" data-type="american">
+<img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+<div class="content">
+<h3>Cheeseburger</h3>
+<button class="view">View</button>
+<button class="fav">⭐</button>
+<div class="details">
+<p>Beef patty, bun, cheese, lettuce.</p>
+</div>
+</div>
+</div>
+
+<div class="recipe" data-type="american">
+<img src="https://images.unsplash.com/photo-1562967916-eb82221dfb36">
+<div class="content">
+<h3>Fried Chicken</h3>
+<button class="view">View</button>
+<button class="fav">⭐</button>
+<div class="details">
+<p>Chicken, flour batter, spices.</p>
+</div>
+</div>
+</div>
+
+<div class="recipe" data-type="chinese">
+<img src="https://images.unsplash.com/photo-1585032226651-759b368d7246">
+<div class="content">
+<h3>Fried Rice</h3>
+<button class="view">View</button>
+<button class="fav">⭐</button>
+<div class="details">
+<p>Rice, egg, soy sauce, vegetables.</p>
+</div>
+</div>
+</div>
+
+<div class="recipe" data-type="chinese">
+<img src="https://images.unsplash.com/photo-1544025162-d76694265947">
+<div class="content">
+<h3>Dumplings</h3>
+<button class="view">View</button>
+<button class="fav">⭐</button>
+<div class="details">
+<p>Dough wrappers, pork filling.</p>
+</div>
+</div>
+</div>
+
+<div class="recipe" data-type="indian">
+<img src="https://images.unsplash.com/photo-1605475128023-54c95c6f9c9f">
+<div class="content">
+<h3>Butter Chicken</h3>
+<button class="view">View</button>
+<button class="fav">⭐</button>
+<div class="details">
+<p>Chicken, butter sauce, spices.</p>
+</div>
+</div>
+</div>
+
+<div class="recipe" data-type="indian">
+<img src="https://images.unsplash.com/photo-1596797038530-2c107aa2c4c0">
+<div class="content">
+<h3>Biryani</h3>
+<button class="view">View</button>
+<button class="fav">⭐</button>
+<div class="details">
+<p>Rice, chicken, spices.</p>
+</div>
+</div>
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
