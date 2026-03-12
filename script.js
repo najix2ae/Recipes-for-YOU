@@ -1,9 +1,5 @@
-// ================================
-// 1️⃣ Recipe List (local images)
-// ================================
-
 const recipes = [
-  { name:"Spaghetti Carbonara", type:"italian", time:"25 min", diff:"Medium", img:"spaghetti_carbonara.jpg" },
+{ name:"Spaghetti Carbonara", type:"italian", time:"25 min", diff:"Medium", img:"spaghetti_carbonara.jpg" },
   { name:"Lasagna", type:"italian", time:"1 hr", diff:"Hard", img:"lasagna.jpg" },
   { name:"Margherita Pizza", type:"italian", time:"30 min", diff:"Medium", img:"margherita_pizza.jpg" },
   { name:"Tiramisu", type:"italian", time:"45 min", diff:"Medium", img:"tiramisu.jpg" },
@@ -33,125 +29,113 @@ const recipes = [
   { name:"Pad Thai", type:"thai", time:"25 min", diff:"Medium", img:"pad_thai.jpg" },
   { name:"Tom Yum Soup", type:"thai", time:"20 min", diff:"Medium", img:"tom_yum_soup.jpg" },
   { name:"Green Curry", type:"thai", time:"35 min", diff:"Medium", img:"green_curry.jpg" }
-];
+]
 
-// ================================
-// 2️⃣ Select Containers
-// ================================
-const container = document.getElementById("recipes");
-const trending = document.getElementById("trending");
+const container=document.getElementById("recipes")
+const trending=document.getElementById("trending")
 
-// ================================
-// 3️⃣ Function to Create Recipe Cards
-// ================================
 function createCard(r){
-  return `
-    <div class="recipe" data-type="${r.type}">
-      <img src="${r.img}" alt="${r.name}">
-      <div class="content">
-        <h3>${r.name}</h3>
-        <p>⏱ ${r.time}</p>
-        <p>📊 ${r.diff}</p>
-       viewBtn.onclick = () => {
 
-localStorage.setItem("selectedRecipe", JSON.stringify(recipe));
+return `
+<div class="recipe">
 
-window.location.href = "recipe.html";
+<img src="${r.img}">
 
-};
-        <button class="fav">❤️</button>
-        <div class="rating">
-          <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-        </div>
-        <div class="details">
-          <p>Type: ${r.type}</p>
-        </div>
-      </div>
-    </div>
-  `;
+<div class="content">
+
+<h3>${r.name}</h3>
+
+<p>⏱ ${r.time}</p>
+<p>📊 ${r.diff}</p>
+
+<button class="view">View</button>
+<button class="fav">❤️</button>
+
+<div class="rating">
+<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+</div>
+
+<div class="details">
+<p>${r.type} recipe</p>
+</div>
+
+</div>
+</div>
+`
+
 }
 
-// ================================
-// 4️⃣ Render All Recipes
-// ================================
 if(container){
-  recipes.forEach(r=>{
-    container.innerHTML += createCard(r);
-  });
+
+recipes.forEach(r=>{
+container.innerHTML+=createCard(r)
+})
+
 }
 
-// ================================
-// 5️⃣ Render Trending (first 8)
-// ================================
 if(trending){
-  recipes.slice(0,8).forEach(r=>{
-    trending.innerHTML += createCard(r);
-  });
+
+recipes.slice(0,5).forEach(r=>{
+trending.innerHTML+=createCard(r)
+})
+
 }
 
-// ================================
-// 6️⃣ Expand Recipe Details
-// ================================
-document.addEventListener("click", function(e){
-  if(e.target.classList.contains("view")){
-    const d = e.target.parentElement.querySelector(".details");
-    d.style.display = d.style.display==="block" ? "none" : "block";
-  }
-});
 
-// ================================
-// 7️⃣ Favorite Toggle
-// ================================
-document.addEventListener("click", function(e){
-  if(e.target.classList.contains("fav")){
-    e.target.classList.toggle("active");
-  }
-});
+/* expand */
 
-// ================================
-// 8️⃣ Star Rating
-// ================================
-document.addEventListener("click", function(e){
-  if(e.target.parentElement.classList.contains("rating")){
-    const stars = [...e.target.parentElement.children];
-    stars.forEach((s,i)=>{
-      s.textContent = i <= stars.indexOf(e.target) ? "★" : "☆";
-    });
-  }
-});
+document.addEventListener("click",function(e){
 
-// ================================
-// 9️⃣ Search
-// ================================
-const searchBar = document.getElementById("search");
-if(searchBar){
-  searchBar.addEventListener("input", function(){
-    const val = this.value.toLowerCase();
-    document.querySelectorAll(".recipe").forEach(r=>{
-      const title = r.querySelector("h3").textContent.toLowerCase();
-      r.style.display = title.includes(val) ? "block" : "none";
-    });
-  });
+if(e.target.classList.contains("view")){
+
+let d=e.target.parentElement.querySelector(".details")
+
+d.style.display=d.style.display==="block"?"none":"block"
+
 }
 
-// ================================
-// 🔟 Filter by Type
-// ================================
-const filter = document.getElementById("filter");
-if(filter){
-  filter.addEventListener("change", function(){
-    const v = this.value;
-    document.querySelectorAll(".recipe").forEach(r=>{
-      if(v==="all") r.style.display="block";
-      else r.style.display = r.dataset.type===v ? "block" : "none";
-    });
-  });
+})
+
+
+/* favorites */
+
+document.addEventListener("click",function(e){
+
+if(e.target.classList.contains("fav")){
+
+e.target.classList.toggle("active")
+
 }
 
-// ================================
-// 1️⃣1️⃣ Dark Mode
-// ================================
-const selectedRecipe = JSON.parse(localStorage.getItem("selectedRecipe"));
+})
+
+
+/* rating */
+
+document.addEventListener("click",function(e){
+
+if(e.target.parentElement.classList.contains("rating")){
+
+let stars=[...e.target.parentElement.children]
+
+stars.forEach((s,i)=>{
+
+s.textContent=i<=stars.indexOf(e.target)?"★":"☆"
+
+})
+
+}
+
+})
+
+
+/* dark mode */
+
+function toggleDark(){
+
+document.body.classList.toggle("dark")
+  /* recipes */
+  const selectedRecipe = JSON.parse(localStorage.getItem("selectedRecipe"));
 
 if (selectedRecipe && document.getElementById("recipeTitle")) {
 
@@ -183,4 +167,6 @@ ingredientList.appendChild(li);
 }
 function toggleDark(){
   document.body.classList.toggle("dark");
+}
+
 }
