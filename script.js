@@ -84,13 +84,24 @@ trending.innerHTML+=createCard(r)
 
 /* expand */
 
-document.addEventListener("click",function(e){
+document.addEventListener("click", function(e){
 
 if(e.target.classList.contains("view")){
 
-let d=e.target.parentElement.querySelector(".details")
+let card = e.target.closest(".card")
 
-d.style.display=d.style.display==="block"?"none":"block"
+let recipe = {
+name: card.querySelector(".title").innerText,
+img: card.querySelector("img").src,
+time: card.querySelector(".time").innerText,
+difficulty: card.querySelector(".difficulty").innerText,
+ingredients: card.querySelector(".ingredients").innerText.split(","),
+instructions: card.querySelector(".instructions").innerText
+}
+
+localStorage.setItem("selectedRecipe", JSON.stringify(recipe))
+
+window.location.href = "recipe.html"
 
 }
 
@@ -167,6 +178,38 @@ ingredientList.appendChild(li);
 }
 function toggleDark(){
   document.body.classList.toggle("dark");
+}
+
+}
+const selectedRecipe = JSON.parse(localStorage.getItem("selectedRecipe"));
+
+if (selectedRecipe) {
+
+const title = document.getElementById("recipeTitle");
+const image = document.getElementById("recipeImage");
+const time = document.getElementById("recipeTime");
+const difficulty = document.getElementById("recipeDifficulty");
+const ingredients = document.getElementById("recipeIngredients");
+const instructions = document.getElementById("recipeInstructions");
+
+if (title) {
+
+title.textContent = selectedRecipe.name;
+image.src = selectedRecipe.img;
+time.textContent = selectedRecipe.time;
+difficulty.textContent = selectedRecipe.difficulty;
+instructions.textContent = selectedRecipe.instructions;
+
+ingredients.innerHTML = "";
+
+selectedRecipe.ingredients.forEach(item => {
+
+const li = document.createElement("li");
+li.textContent = item;
+ingredients.appendChild(li);
+
+});
+
 }
 
 }
