@@ -189,6 +189,45 @@ color:white;
 .formBox button:hover{
 background:#ff5722;
 }
+.sectionTitle{
+margin-left:25px;
+margin-top:25px;
+font-size:22px;
+}
+
+.trending{
+display:flex;
+gap:20px;
+overflow-x:auto;
+padding:20px;
+}
+
+.trending .recipe{
+min-width:250px;
+}
+
+/* DARK MODE */
+
+.dark{
+background:#1f1f1f;
+color:white;
+}
+
+.dark header{
+background:#2a2a2a;
+}
+
+.dark .recipe{
+background:#2a2a2a;
+color:white;
+}
+
+.dark input,
+.dark select{
+background:#333;
+color:white;
+border:none;
+}
 
 /* MOBILE */
 
@@ -218,3 +257,4 @@ height:200px;
 }
 
 }
+
