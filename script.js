@@ -146,70 +146,15 @@ function toggleDark(){
 
 document.body.classList.toggle("dark")
   /* recipes */
-  const selectedRecipe = JSON.parse(localStorage.getItem("selectedRecipe"));
+const r = JSON.parse(localStorage.getItem("selectedRecipe"))
 
-if (selectedRecipe && document.getElementById("recipeTitle")) {
+if(r && document.getElementById("recipeTitle")){
 
-document.getElementById("recipeTitle").textContent = selectedRecipe.name;
-
-document.getElementById("recipeImage").src = selectedRecipe.img;
-
-document.getElementById("recipeTime").textContent = selectedRecipe.time;
-
-document.getElementById("recipeDifficulty").textContent = selectedRecipe.difficulty;
-
-document.getElementById("recipeInstructions").textContent = selectedRecipe.instructions;
-
-
-const ingredientList = document.getElementById("recipeIngredients");
-
-ingredientList.innerHTML = "";
-
-selectedRecipe.ingredients.forEach(ingredient => {
-
-const li = document.createElement("li");
-
-li.textContent = ingredient;
-
-ingredientList.appendChild(li);
-
-});
-
-}
-function toggleDark(){
-  document.body.classList.toggle("dark");
-}
-
-}
-const selectedRecipe = JSON.parse(localStorage.getItem("selectedRecipe"));
-
-if (selectedRecipe) {
-
-const title = document.getElementById("recipeTitle");
-const image = document.getElementById("recipeImage");
-const time = document.getElementById("recipeTime");
-const difficulty = document.getElementById("recipeDifficulty");
-const ingredients = document.getElementById("recipeIngredients");
-const instructions = document.getElementById("recipeInstructions");
-
-if (title) {
-
-title.textContent = selectedRecipe.name;
-image.src = selectedRecipe.img;
-time.textContent = selectedRecipe.time;
-difficulty.textContent = selectedRecipe.difficulty;
-instructions.textContent = selectedRecipe.instructions;
-
-ingredients.innerHTML = "";
-
-selectedRecipe.ingredients.forEach(item => {
-
-const li = document.createElement("li");
-li.textContent = item;
-ingredients.appendChild(li);
-
-});
-
-}
+document.getElementById("recipeTitle").textContent = r.name
+document.getElementById("recipeImage").src = r.img
+document.getElementById("recipeIngredients").textContent = r.ingredients
+document.getElementById("recipeTime").textContent = r.time || ""
+document.getElementById("recipeDifficulty").textContent = r.difficulty || ""
+document.getElementById("recipeInstructions").textContent = r.instructions || ""
 
 }
